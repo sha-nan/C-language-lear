@@ -1,0 +1,7 @@
+*.out
+*.o
+*.log
+*.json
+*.txt
+build\*
+DataStructure/link/test
