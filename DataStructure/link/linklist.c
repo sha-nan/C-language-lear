@@ -104,6 +104,32 @@ int list_tail_insert(linklist head, data_t data)
 }
 
 /*
+* 函数名称：list_order_insert
+* 函数功能：按顺序插入
+* 输入参数：head：链表的首地址，data：要插入的数据
+* 输出参数：无
+* 返回值：0表示成功，-1表示失败
+*/
+int list_order_insert(linklist head, data_t data)
+{
+    linklist node = (linklist)malloc(sizeof(listnode)); //创建新节点
+    if (node == NULL)
+    {
+        printf("list malloc error!\n");
+        return -1;
+    }
+    node->data = data; //插入数据
+    linklist p = head; //指向链表的尾部
+    while (p->next != NULL && p->next->data < data)
+    {
+        p = p->next;
+    }
+    node->next = p->next;//插入位置
+    p->next = node;//插入
+    return 0;
+}
+
+/*
  *函数名称：list_insert
  *函数功能：指定位置插入指定数值
  *输入参数：head：链表的首地址，data：要插入的数据，pos：插入的位置
