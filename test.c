@@ -20,3 +20,22 @@ int main()
     printf("单词个数：%d\n", fun(s));
     return 0;
 }
+
+int list_order_insert(linklist h,data_t data)
+{
+    linklist p;
+    p = (linklist)malloc(sizeof(linknode));
+    if(p== NULL)
+    {
+        printf("malloc error!\n");
+        return -1;
+    }
+    p->data = data;
+    linklist q = h;
+    while(q->next!=NULL&&q->next->data< data)
+    {
+        q = q->next;
+    }
+    p -> next = q->next;
+    q->next = p;//插入
+}
