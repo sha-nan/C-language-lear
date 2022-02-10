@@ -22,6 +22,7 @@ linklist list_get(linklist head, int pos);            //获取指定位置的节
 linklist list_locate(linklist head, data_t data);     //获取指定值的节点地址
 int list_insert(linklist head, data_t data, int pos); //指定位置插入数据
 void list_reverse(linklist head);                     //反转链表
+void list_sort(linklist head);                        //排序
 void list_show(linklist head);                        //显示链表
 
 #endif

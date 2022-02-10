@@ -268,6 +268,32 @@ void list_reverse(linklist head)
 }
 
 /*
+函数名称：list_sort
+函数功能：排序链表
+输入参数：head：链表的首地址
+输出参数：无
+返回值：无
+*/
+void list_sort(linklist head)
+{
+    linklist p, q, r;
+    p=head->next;
+    head->next=NULL;
+    while (p)
+    {
+        q = p;
+        p = p->next;
+
+        r = head;
+        while (r->next != NULL && r->next->data < q->data)
+        {
+            r = r->next;
+        }
+        q->next = r->next;
+        r->next = q;
+    }
+}
+/*
  * 函数名称：list_show
  * 函数功能：显示链表
  * 输入参数：head：链表的首地址
