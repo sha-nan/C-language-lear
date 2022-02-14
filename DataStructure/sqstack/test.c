@@ -3,8 +3,8 @@
 int main(int argc, char **argv)
 {
     sqstack *s;
-    int n = 10;
-    s = sqstack_create(n);
+    int n = 4;
+    s = stack_create(n);
     stack_push(s, 10);
     stack_push(s, 20);
     stack_push(s, 30);
@@ -12,8 +12,16 @@ int main(int argc, char **argv)
 
     while (!stack_empty(s))
     {
-        printf("%d", stack_pop(s));
+        printf("%d ", stack_pop(s));
     }
     puts("");
+#if 0
+    free(s->data);
+    s->data = NULL;
+    free(s);
+    s = NULL;
+#endif
+
+    stack_free(s);
     return 0;
 }
