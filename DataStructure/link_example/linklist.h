@@ -14,5 +14,6 @@ typedef struct node
 
 linklist list_create(void);    //创建链表
 void list_show(linklist head); //遍历链表
+void list_jose(linklist head,int k,int m); //Joseph问题
 
 #endif

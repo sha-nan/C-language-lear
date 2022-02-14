@@ -1,11 +1,11 @@
 #include "linklist.h"
 
 /*
-*函数名称：list_create
-*函数功能：创建链表
-*函数参数：无
-*函数返回值：链表头指针
-*/
+ *函数名称：list_create
+ *函数功能：创建链表
+ *函数参数：无
+ *函数返回值：链表头指针
+ */
 linklist list_create(void)
 {
     linklist head; //头结点
@@ -31,7 +31,6 @@ loop:
     head->next = head;
     r = head;
 
-
     for (int i = 2; i <= num; i++)
     {
         p = (linklist)malloc(sizeof(listnode)); //创建新节点
@@ -48,6 +47,32 @@ loop:
     return head;
 }
 
+void list_jose(linklist head, int k, int m)
+{
+
+    linklist r, p;
+    r = head;
+    while (r->next->data != k)
+    {
+        r = r->next;
+    }
+    printf("k=%d\n", k);
+    while (r->next != r)
+    {
+        for (int i = 0; i < m - 1; i++)
+        {
+            r = r->next;
+        }
+        p = r->next;
+        r->next = p->next;
+        printf("%d\n", p->data);
+        free(p);
+        p = NULL;
+    }
+    printf("%d\n", r->data);
+    free(r);
+    r = NULL;
+}
 /*
  *函数名称：list_show
  *函数功能：遍历链表
